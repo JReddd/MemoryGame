@@ -14,7 +14,7 @@ class Game extends Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            cards: initCards(18), //initCard(32),
+            cards: initCards(18),
             lastCard: null,
             player1: true,
             p1MatchesTime: 0,
@@ -35,6 +35,7 @@ class Game extends Component {
         clearInterval(this.intervalID);
     }
 
+    //Update tracking time
     tick() {
         let p1UsedTime = this.state.p1Time;
         let p2UsedTime = this.state.p2Time;
@@ -44,6 +45,7 @@ class Game extends Component {
         });
     }
 
+    //Check if two cards match
     isMatch(value, id) {
 
         if (this.state.hold) return;
@@ -90,6 +92,7 @@ class Game extends Component {
         }
     }
 
+    //Reset the game
     reset() {
         this.setState({
             cards: initCards(18),
@@ -126,6 +129,7 @@ class Game extends Component {
         );
     }
 
+    //Change difficulty level
     onChange(e) {
         const value =  e.target.value;
         this.setState({
